@@ -1,0 +1,87 @@
+{
+    "title": "Times Newswire",
+    "description": "With the Times Newswire API, you can get links and metadata for Times articles and blog posts as soon as they are published on NYTimes.com. The Times Newswire API provides an up-to-the-minute stream of published items.",
+    "docsUrl": "http://developer.nytimes.com/",
+    "url": "https://api.apis.guru/v2/specs/nytimes.com/timeswire/3.0.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "http://api.nytimes.com/svc/news/v3",
+                    "https://api.nytimes.com/svc/news/v3",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "apikey": {
+                "label": "api-key (apikey)",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "get_content_json": {
+            "main": "./lib/actions/get_content_json.js",
+            "title": "get_content_json",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_content_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_content__source___section__json": {
+            "main": "./lib/actions/get_content__source___section__json.js",
+            "title": "get_content__source___section__json",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_content__source___section__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_content__source___section___time_period__json": {
+            "main": "./lib/actions/get_content__source___section___time_period__json.js",
+            "title": "get_content__source___section___time_period__json",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_content__source___section___time_period__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

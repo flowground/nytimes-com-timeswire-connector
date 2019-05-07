@@ -1,0 +1,28 @@
+{
+    "type": "object",
+    "properties": {
+        "source": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "all",
+                "nyt",
+                "iht"
+            ]
+        },
+        "section": {
+            "required": true,
+            "type": "string"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer",
+            "default": 20
+        },
+        "offset": {
+            "required": false,
+            "type": "integer",
+            "default": 0
+        }
+    }
+}
